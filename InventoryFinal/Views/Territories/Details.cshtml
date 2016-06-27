@@ -1,0 +1,34 @@
+﻿@model InventoryFinal.Models.Territories
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Territories</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TerrRegion.RegionDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerrRegion.RegionDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TerritoryDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerritoryDesc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TerritoryID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

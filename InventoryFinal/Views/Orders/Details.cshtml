@@ -1,0 +1,106 @@
+﻿@model InventoryFinal.Models.Orders
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Orders</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shippers.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shippers.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequiredDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShippedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShippedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.shipAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.shipAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipPostalCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipPostalCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ShipCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ShipCountry)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
