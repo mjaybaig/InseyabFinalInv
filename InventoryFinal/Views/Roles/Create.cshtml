@@ -8,8 +8,8 @@
 @Html.ActionLink("List Roles", "Index", "Roles") | @Html.ActionLink("Manage Roles", "ManageUserRoles", "Roles")
 <hr />
 
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
+
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 

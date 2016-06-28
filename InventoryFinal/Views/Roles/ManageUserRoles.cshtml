@@ -1,0 +1,32 @@
+﻿@*@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityUser>*@
+@{
+    ViewBag.Title = "ManageUserRoles";
+}
+
+<h2>Manage User Roles</h2>
+
+@Html.ActionLink("Create New Role", "Create", "Roles") | @Html.ActionLink("Manage Roles", "ManageUserRoles", "Roles")
+<hr />
+
+<h2>Role Add to User</h2>
+
+
+@Html.AntiForgeryToken()
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm("RoleAddToUser", "Roles"))
+{
+    <div>
+        @for (int i = 0; i < ViewBag.Users.Count; i++)
+        {
+            <p>
+                
+                @ViewBag.Users[i].UserName
+                @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles)
+            </p>
+            
+            <input type="submit" value="Save"  />
+        }
+    </div>
+
+}

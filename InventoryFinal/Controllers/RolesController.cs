@@ -9,7 +9,7 @@ using InventoryFinal.Models;
 
 namespace InventoryFinal.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize]
     public class RolesController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
@@ -52,6 +52,22 @@ namespace InventoryFinal.Controllers
             }
         }
 
+        public ActionResult ManageUserRoles()
+        {
+            ViewBag.RoleName = new SelectList(context.Roles.OrderBy(r=>r.Name).ToList(), "Id", "Name");
+            //ViewBag.Users = new SelectList(context.Users.OrderBy(u => u.UserName).ToList(), "Id", "UserName");
+            ViewBag.Users = context.Users.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult RoleAddToUser(FormCollection collection)
+        {
+            //ApplicationUser user = context.Users.Where(u=>u.Id.Equals(collection[]))
+
+            return View();
+        }
+
         // GET: Roles/Edit/5
         public ActionResult Edit(int id)
         {
@@ -79,7 +95,7 @@ namespace InventoryFinal.Controllers
         {
             return View();
         }
-
+        
         // POST: Roles/Delete/5
         [HttpPost]
         public ActionResult Delete(string id, FormCollection collection)
