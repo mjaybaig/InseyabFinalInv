@@ -22,10 +22,11 @@ namespace InventoryFinal.Models
         public string Title { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime Birthdate { get; set; }
+        public DateTime? Birthdate { get; set; }
 
+        [Display(Name ="Hire Date")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
-        public DateTime Hiredate { get; set; }
+        public DateTime? Hiredate { get; set; }
 
         [StringLength(250, ErrorMessage = "Kindly Enter between 1 and 250 characters")]
         public string Address { get; set; }
@@ -50,9 +51,11 @@ namespace InventoryFinal.Models
         [DataType(DataType.Upload)]
         public byte[] Photo { get; set; }
 
+        [Display(Name = "Reports To")]
         public int? ReportsToID { get; set; }
 
         [ForeignKey("ReportsToID")]
+        [Display(Name = "Reports To")]
         public virtual Employees ReportsTo { get; set; }
 
         public virtual ICollection<Territories> Territories { get; set; }

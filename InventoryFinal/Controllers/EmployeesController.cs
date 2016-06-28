@@ -17,7 +17,18 @@ namespace InventoryFinal.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            var employees = db.Employees.Include(e => e.ReportsTo);
+            var employees = from a in db.Employees
+                            join e in db.Employees on a.ReportsToID equals e.EmployeeID
+                            select new EmployeeListViewModel
+                            {
+                                FirstName = a.FirstName,
+                                LastName = a.LastName,
+                                Birthdate = (DateTime)a.Birthdate,
+                                City = a.City,
+                                ReportsToName = e.FirstName+" "+e.LastName,
+                                EmployeesID = a.EmployeeID
+                            };
+            //var employees = db.Employees.Include(e => e.ReportsTo);
             return View(employees.ToList());
         }
 
