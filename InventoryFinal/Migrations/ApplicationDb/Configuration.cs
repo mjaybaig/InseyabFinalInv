@@ -1,5 +1,6 @@
 namespace InventoryFinal.Migrations.ApplicationDb
 {
+    using Microsoft.AspNet.Identity;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -13,7 +14,7 @@ namespace InventoryFinal.Migrations.ApplicationDb
             MigrationsDirectory = @"Migrations\ApplicationDb";
         }
 
-        protected override void Seed(InventoryFinal.Models.ApplicationDbContext context)
+        protected override void Seed(/*InventoryFinal.Models.ApplicationDbContext*/InventoryFinal.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -27,6 +28,18 @@ namespace InventoryFinal.Migrations.ApplicationDb
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            //context.Roles.AddOrUpdate(new Microsoft.AspNet.Identity.EntityFramework.IdentityRole()
+            //{
+            //    Name = "Admin"
+            //});
+            //context.Roles.AddOrUpdate(new Microsoft.AspNet.Identity.EntityFramework.IdentityRole()
+            //{
+            //    Name = "User"
+            //});
+            //context.Roles.AddOrUpdate(new Microsoft.AspNet.Identity.EntityFramework.IdentityRole()
+            //{
+            //    Name = "Employee"
+            //});
         }
     }
 }

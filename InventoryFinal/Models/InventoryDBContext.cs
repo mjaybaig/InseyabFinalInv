@@ -9,7 +9,7 @@ namespace InventoryFinal.Models
 {
     public class InventoryDBContext : DbContext
     {
-        public InventoryDBContext() : base("InseyabDbConnection")
+        public InventoryDBContext() : base("DefaultConnection")
         {
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<InventoryDBContext>());
         }
