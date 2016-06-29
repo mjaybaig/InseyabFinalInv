@@ -17,7 +17,7 @@ namespace InventoryFinal.Models
         [Key]
         [Column(Order = 2)]
         public int OrderID { get; set; }
-        public Orders Order { get; set; }
+        public virtual Orders Order { get; set; }
 
         public decimal UnitPrice { get; set; }
 

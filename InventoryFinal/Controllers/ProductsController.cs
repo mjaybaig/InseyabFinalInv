@@ -10,10 +10,12 @@ using InventoryFinal.Models;
 
 namespace InventoryFinal.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
         private InventoryDBContext db = new InventoryDBContext();
 
+        [AllowAnonymous]
         // GET: Products
         public ActionResult Index()
         {
@@ -21,6 +23,7 @@ namespace InventoryFinal.Controllers
             return View(db.Products.ToList());
         }
 
+        [AllowAnonymous]
         // GET: Products/Details/5
         public ActionResult Details(int? id)
         {

@@ -39,7 +39,7 @@ namespace InventoryFinal.Controllers
         // GET: OrderDetails/Create
         public ActionResult Create()
         {
-            ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "shipAddress");
+            ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "ShippedDate");
             ViewBag.ProductID = new SelectList(db.Products, "ProductID", "ProductName");
             return View();
         }

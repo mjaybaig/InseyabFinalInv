@@ -60,5 +60,7 @@ namespace InventoryFinal.Models
 
         public virtual ICollection<Territories> Territories { get; set; }
 
+        public virtual ICollection<Orders> empOrders { get; set; }
+
     }
 }

@@ -6,7 +6,7 @@ namespace InventoryFinal.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<InventoryFinal.Models.InventoryDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<InventoryDBContext>
     {
         public Configuration()
         {
@@ -43,9 +43,9 @@ namespace InventoryFinal.Migrations
                 new Products { ProductID = 3, CategoryID = 3, ProductName = "Lancer", Discontinued = false, QuantityPerUnit = 125, SupplierID = 2, ReorderLevel = 10, UnitPrice = 150.0m, UnitsInOrder = 13, UnitsInStock = 175 }
                 );
             context.Employees.AddOrUpdate(e => e.EmployeeID,
+                new Employees { EmployeeID = 0 },
                 new Employees { EmployeeID = 1, FirstName = "Kumail", LastName = "Habib", Birthdate = new DateTime(1984, 12, 23), Hiredate = new DateTime(2006, 8, 1), Address = "Sample Address here", City = "Lahore", Country = "Pakistan", HomePhone = "925485259", Title = "Mr.", Region = "Sindh", Extension = "457", ReportsToID=0},
-                new Employees { EmployeeID = 2, FirstName = "Hamid", LastName = "Shareef", Birthdate = new DateTime(1988, 1, 7), Hiredate = new DateTime(2011, 5, 10), Address = "Sample Address52 here", City = "Lahore", Country = "Pakistan", HomePhone = "92548847", Title = "Mr.", Region = "Sindh", Extension = "458", ReportsToID = 1 },
-                new Employees { EmployeeID = 0}
+                new Employees { EmployeeID = 2, FirstName = "Hamid", LastName = "Shareef", Birthdate = new DateTime(1988, 1, 7), Hiredate = new DateTime(2011, 5, 10), Address = "Sample Address52 here", City = "Lahore", Country = "Pakistan", HomePhone = "92548847", Title = "Mr.", Region = "Sindh", Extension = "458", ReportsToID = 1 }
                 );
             context.SaveChanges();
         }

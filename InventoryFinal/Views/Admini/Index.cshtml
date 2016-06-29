@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Products</h3>
+        <table class="table">
+            <tr>
+                <th>Product Name</th>
+                <th>Supplier Name</th>
+                <th>Category</th>
+                <th>Units In Stock</th>
+            </tr>
+            @for(int i = 0; i<ViewBag.Products.Count; i++)
+            {
+                <tr>
+                    <td>@ViewBag.Products[i].ProductName</td>
+                    <td>@ViewBag.Products[i].prodSupplier.CompanyName</td>
+                    <td>@ViewBag.Products[i].prodCategory.Name</td>
+                    <td>@ViewBag.Products[i].UnitsInStock</td>
+                </tr>
+            }
+        </table>
+        <hr />
+        @Html.ActionLink("View All", "Index", "Products", null, new { @class = "btn btn-primary btn-sm" })
+    </div>
+    <div class="col-md-6">
+        <h3>Employees</h3>
+        <table class="table">
+            <tr>
+                <th>Employee Name</th>
+                <th>Reports To</th>
+                <th>Birthdate</th>
+                <th>City</th>
+            </tr>
+            @for (int i = 0; i < ViewBag.Employees.Count; i++)
+            {
+                <tr>
+                    <td>@ViewBag.Employees[i].FirstName&nbsp;@ViewBag.Employees[i].LastName</td>
+                    <td>@ViewBag.Employees[i].ReportsToName</td>
+                    <td>@ViewBag.Employees[i].Birthdate</td>
+                    <td>@ViewBag.Employees[i].City</td>
+                </tr>
+            }
+        </table>
+        <hr />
+        @Html.ActionLink("View All", "Index", "Employees", null, new { @class = "btn btn-primary btn-sm" })
+        
+    @* if there are employees who are not users *@
+        @Html.ActionLink("Create Users", "EmpUserSync", "Admini", null, new { @class = "btn btn-info btn-sm" })
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Orders</h3>
+        <table class="table">
+            <tr>
+                <th>Order Date</th>
+                <th>Customer</th>
+                <th>Employee Name</th>
+                <th>City</th>
+            </tr>
+            @for (int i = 0; i < ViewBag.Orders.Count; i++)
+            {
+                <tr>
+                    <td>@ViewBag.Orders[i].Order.OrderDate</td>
+                    <td>@ViewBag.Orders[i].Order.Customer.CompanyName</td>
+                    <td>@ViewBag.Orders[i].Order.Employee.FirstName @ViewBag.Orders[i].Order.Employee.LastName</td>
+                    <td>@ViewBag.Orders[i].Order.ShipCity</td>
+                </tr>
+            }
+        </table>
+        <hr />
+        @Html.ActionLink("View All", "Index", "Orders", null, new { @class = "btn btn-primary btn-sm" })
+    </div>
+</div>

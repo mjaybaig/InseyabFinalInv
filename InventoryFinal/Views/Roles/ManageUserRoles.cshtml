@@ -20,7 +20,6 @@
         @for (int i = 0; i < ViewBag.Users.Count; i++)
         {
             <p>
-                
                 @ViewBag.Users[i].UserName
                 @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles)
             </p>

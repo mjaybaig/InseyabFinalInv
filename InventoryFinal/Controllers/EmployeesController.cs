@@ -10,10 +10,12 @@ using InventoryFinal.Models;
 
 namespace InventoryFinal.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EmployeesController : Controller
     {
         private InventoryDBContext db = new InventoryDBContext();
 
+        [AllowAnonymous]
         // GET: Employees
         public ActionResult Index()
         {
@@ -31,7 +33,7 @@ namespace InventoryFinal.Controllers
             //var employees = db.Employees.Include(e => e.ReportsTo);
             return View(employees.ToList());
         }
-
+        [AllowAnonymous]
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {

@@ -36,6 +36,7 @@ namespace InventoryFinal.Controllers
             return View(orders);
         }
 
+        [Authorize(Roles ="Admin")]
         // GET: Orders/Create
         public ActionResult Create()
         {
@@ -65,6 +66,7 @@ namespace InventoryFinal.Controllers
             return View(orders);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Orders/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -102,6 +104,7 @@ namespace InventoryFinal.Controllers
             return View(orders);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Orders/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -116,7 +119,7 @@ namespace InventoryFinal.Controllers
             }
             return View(orders);
         }
-
+        [Authorize(Roles = "Admin")]
         // POST: Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

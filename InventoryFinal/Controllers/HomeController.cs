@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryFinal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,10 @@ namespace InventoryFinal.Controllers
     {
         public ActionResult Index()
         {
+            ApplicationDbContext context = new ApplicationDbContext();
+            if (User.IsInRole("Admin"))
+                return RedirectToAction("Index", "Admini");
+            //endif
             return View();
         }
 

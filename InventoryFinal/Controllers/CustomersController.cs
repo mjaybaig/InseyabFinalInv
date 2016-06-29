@@ -10,16 +10,19 @@ using InventoryFinal.Models;
 
 namespace InventoryFinal.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CustomersController : Controller
     {
         private InventoryDBContext db = new InventoryDBContext();
 
+        [AllowAnonymous]
         // GET: Customers
         public ActionResult Index()
         {
             return View(db.Customers.ToList());
         }
 
+        [AllowAnonymous]
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
@@ -46,7 +49,7 @@ namespace InventoryFinal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,fax,OrderID")] Customers customers)
+        public ActionResult Create([Bind(Include = "CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,fax")] Customers customers)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +81,7 @@ namespace InventoryFinal.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustID,CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,fax,OrderID")] Customers customers)
+        public ActionResult Edit([Bind(Include = "CompanyName,ContactName,ContactTitle,Address,City,Region,PostalCode,Country,Phone,fax")] Customers customers)
         {
             if (ModelState.IsValid)
             {

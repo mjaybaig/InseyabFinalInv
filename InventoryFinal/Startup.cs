@@ -19,6 +19,7 @@ namespace InventoryFinal
         private void createRolesAndUsers()
         {
             ApplicationDbContext context = new ApplicationDbContext();
+            InventoryDBContext icontext = new InventoryDBContext();
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
@@ -58,7 +59,7 @@ namespace InventoryFinal
                     Name = "Employee"
                 };
                 roleManager.Create(role);
-            }
+            }                      
         }
     }
 }

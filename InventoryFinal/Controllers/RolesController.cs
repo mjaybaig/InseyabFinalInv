@@ -9,7 +9,7 @@ using InventoryFinal.Models;
 
 namespace InventoryFinal.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class RolesController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();

@@ -12,25 +12,25 @@ namespace InventoryFinal.Models
         [Key]
         public int OrderID { get; set; }
 
-        [DisplayFormat(DataFormatString ="{dd/mm/yyyy}")]
+        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}")]
         public DateTime OrderDate { get; set; }
 
         public int CustID { get; set; }
-        public Customers Customer { get; set; }
+        public virtual Customers Customer { get; set; }
 
         public int EmployeeID { get; set; }
-        public Employees Employee { get; set; }
+        public virtual Employees Employee { get; set; }
 
-        [DisplayFormat(DataFormatString = "{dd/mm/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime RequiredDate { get; set; }
 
-        [DisplayFormat(DataFormatString = "{dd/mm/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime ShippedDate { get; set; }
 
         public int ShipVia { get; set; }
 
         [ForeignKey("ShipVia")]
-        public Shippers Shippers { get; set; }
+        public virtual Shippers Shippers { get; set; }
 
         public string shipAddress { get; set; }
 
@@ -42,6 +42,6 @@ namespace InventoryFinal.Models
 
         public string ShipCountry { get; set; }
 
-        public ICollection<OrderDetails> OrderDetails { get; set; }
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

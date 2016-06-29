@@ -11,109 +11,109 @@ using InventoryFinal.Models;
 namespace InventoryFinal.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class CategoriesController : Controller
+    public class ShippersController : Controller
     {
         private InventoryDBContext db = new InventoryDBContext();
 
         [AllowAnonymous]
-        // GET: Categories
+        // GET: Shippers
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            return View(db.Shippers.ToList());
         }
 
         [AllowAnonymous]
-        // GET: Categories/Details/5
+        // GET: Shippers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            Shippers shippers = db.Shippers.Find(id);
+            if (shippers == null)
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return View(shippers);
         }
 
-        // GET: Categories/Create
+        // GET: Shippers/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categories/Create
+        // POST: Shippers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CatID,Name,Description,Picture")] Categories categories)
+        public ActionResult Create([Bind(Include = "CompanyName,Phone")] Shippers shippers)
         {
             if (ModelState.IsValid)
             {
-                db.Categories.Add(categories);
+                db.Shippers.Add(shippers);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(categories);
+            return View(shippers);
         }
 
-        // GET: Categories/Edit/5
+        // GET: Shippers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            Shippers shippers = db.Shippers.Find(id);
+            if (shippers == null)
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return View(shippers);
         }
 
-        // POST: Categories/Edit/5
+        // POST: Shippers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CatID,Name,Description,Picture")] Categories categories)
+        public ActionResult Edit([Bind(Include = "CompanyName,Phone")] Shippers shippers)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categories).State = EntityState.Modified;
+                db.Entry(shippers).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(categories);
+            return View(shippers);
         }
 
-        // GET: Categories/Delete/5
+        // GET: Shippers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
+            Shippers shippers = db.Shippers.Find(id);
+            if (shippers == null)
             {
                 return HttpNotFound();
             }
-            return View(categories);
+            return View(shippers);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Shippers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categories categories = db.Categories.Find(id);
-            db.Categories.Remove(categories);
+            Shippers shippers = db.Shippers.Find(id);
+            db.Shippers.Remove(shippers);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

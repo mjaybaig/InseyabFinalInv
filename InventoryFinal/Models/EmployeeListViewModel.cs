@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace InventoryFinal.Models
 
         public DateTime Birthdate { get; set; }
 
+        [DisplayFormat(NullDisplayText = "N/A")]
         public string ReportsToName { get; set; }
     }
 }
