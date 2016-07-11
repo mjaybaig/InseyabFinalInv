@@ -14,6 +14,9 @@ namespace InventoryFinal.Controllers
             ApplicationDbContext context = new ApplicationDbContext();
             if (User.IsInRole("Admin"))
                 return RedirectToAction("Index", "Admini");
+            else if (User.IsInRole("Employee"))
+                return RedirectToAction("Index", "Empl");
+
             //endif
             return View();
         }

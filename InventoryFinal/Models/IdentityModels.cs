@@ -21,7 +21,7 @@ namespace InventoryFinal.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("InseyabDbConnection", throwIfV1Schema: false)
+            : base("DefaultDbConnection", throwIfV1Schema: false)
         {
         }
 
