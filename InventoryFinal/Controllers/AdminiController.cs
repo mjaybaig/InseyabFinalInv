@@ -35,6 +35,11 @@ namespace InventoryFinal.Controllers
             ViewBag.Products = context.Products.Take(4).ToList();
             ViewBag.Orders = context.OrderDetails.ToList();
 
+            //determine if any product is low
+            var lowproduct = (from p in context.Products
+                             where p.UnitsInStock < 10
+                             select p).ToList();
+            ViewBag.LowProducts = lowproduct;
             return View();
         }
 

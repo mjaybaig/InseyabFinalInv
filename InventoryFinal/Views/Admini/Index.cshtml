@@ -6,7 +6,15 @@
 <h2>Index</h2>
 
 <div class="row">
+
     <div class="col-md-6">
+        @foreach (var lp in ViewBag.LowProducts)
+        {
+            <div class="alert alert-warning alert-danger" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Warning!</strong> Product <strong>@lp.ProductName</strong> is low on stock. Please refill
+            </div>
+        }
         <h3>Products</h3>
         <table class="table">
             <tr>
